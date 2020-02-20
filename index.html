@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Joe's Hotdog Stand"/>
+        <meta name="keywords" content="Joe's Hotdog Stand, Hotdog, Stand, Joe, delicious, tubesteaks, frankfurts, French Fries, fries, drinks"/>
+        <title>Joe's Hotdog Stand</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+        <script language="javascript">
+            function calc_total() {
+                var num_hotdogs = parseInt(document.order_form.hotdogs.value);
+                // num_hotdogs = parseInt(num_hotdogs);
+                var num_fries = parseInt(document.order_form.fries.value);
+                // num_fries = parseInt(num_fries);
+                var num_drinks = parseInt(document.order_form.drinks.value);
+                // num_drinks = parseInt(num_drinks);
+                var discount_amt = 0;
+                var tax_amt = 0;
+                var subtotal = (3.25 * num_hotdogs) + (2.00 * num_fries) + (1.50 * num_drinks);
+                var return_me = "~ Your Order ~ <br />Hotdogs: " + num_hotdogs + "<br />Fries: " + num_fries + "<br />Sodas: " + num_drinks + "<br />Subtotal pre-tax: $" + subtotal;
+                if (subtotal > 20.00) {
+                    discount_amt = subtotal * 0.1;
+                    discount_amt = discount_amt.toFixed(2);
+                    return_me += "<br />Discount: $" + discount_amt.toString();
+                    subtotal = (0.9 * subtotal);
+                }
+                tax_amt = (0.0625 * subtotal);
+                var total_cost = parseFloat(tax_amt) + parseFloat(subtotal);
+                tax_amt = tax_amt.toFixed(2);
+
+                return_me += "<br />MA Meals Tax: $" + tax_amt.toString();
+                total_cost = total_cost.toFixed(2);
+                total_cost = total_cost.toString();
+                return_me += "<br /><hr width='15%'>Total Cost: $" + total_cost;
+                document.getElementById("result").innerHTML = return_me;
+                return;
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1 id="header_text">Welcome to Joe's Hotdog Stand!</h1>
+        </header>
+        <main>
+            <div class="form_holder" align="center">
+                Place your order!<br />
+                <form name="order_form" id="order_form">
+                    <label for="hotdogs">How many Hotdogs would you like?</label><br />
+                    <input type="text" id="hotdogs" name="hotdogs" value="0"><br />
+                    <label for="fries">How many baskets of French Fries would you like?</label><br />
+                    <input type="text" id="fries" name="fries" value="0"><br />
+                    <label for="drinks">How many Sodas would you like?</label><br />
+                    <input type="text" id="drinks" name="drinks" value="0"><br />
+                    <button type="button" onclick ="calc_total()">Calculate Total Cost</button>
+                </form>
+
+            </div>
+            <div id="result"></div>
+
+            <aside id="right_bar">
+                <h2>Prices:</h2>
+                Hotdogs!<em style="font-size: 75%"> $3.25 each</em><br />
+                French Fries!<em style="font-size: 75%"> $2.00 per basket</em><br />
+                Sodas!<em style="font-size: 75%"> $1.50 per bottle</em><br />
+            </aside>
+        </main>    
+        <footer>
+            <h2>Thank you for feasting with us!  Come again soon!</h2>
+        </footer>
+    </body>
+</html>

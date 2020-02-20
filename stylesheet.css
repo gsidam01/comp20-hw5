@@ -1,0 +1,46 @@
+/* stylesheet.css */
+
+/* General Stylistic Elements */
+body {
+    font-family: georgia,times,arial,helvetica;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* Everything related to my Header bar */
+header {
+    width: 100%;
+    color: #f49a7c;
+    text-align: center;
+    font-size: 150%;
+}
+
+
+/* Everything related to the Main part of the page */
+main {
+    color: #345efb;
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    border-style: solid;
+    border-color: #feabdc;
+    height: 20px;
+    width: 50px;
+    font-family: georgia,times,arial,helvetica;
+}
+
+aside {
+    color: #678901;
+    text-align: center;
+}
+
+#order_form {
+    font-size: 30px;
+}
+
+#result {
+    color: #654321;
+    padding: 30px 0px;
+}
